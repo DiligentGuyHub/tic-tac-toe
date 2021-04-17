@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">
+            <p class="bg-primary card-header text-center text-light card">Active sessions</p>
+            <div class="card-body bg-light">
+                <!-- for each session in active ones -> output info -->
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <span><b>Player:</b> username </span>
+                        <span><b>Symbol:</b> X </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <p class="bg-primary card-header text-center text-light">Create session</p>
+            <div class="card-body bg-light">
+                <a class="btn btn-outline-primary justify-content-center w-100">Create</a>
+            </div>
+        </div>
+    </div>
+</div>
