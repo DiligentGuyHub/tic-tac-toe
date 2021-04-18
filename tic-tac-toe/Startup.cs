@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using tic_tac_toe.Hubs;
 using tic_tac_toe.Models;
 
 namespace tic_tac_toe
@@ -26,6 +27,9 @@ namespace tic_tac_toe
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddRazorPages();
+            services.AddSignalR();
+
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(connection));
 
@@ -63,6 +67,9 @@ namespace tic_tac_toe
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapRazorPages();
+                endpoints.MapHub<GameHub>("/GameHub");
             });
         }
     }

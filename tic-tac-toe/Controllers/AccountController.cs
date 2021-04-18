@@ -41,6 +41,7 @@ namespace tic_tac_toe.Controllers
                     user.LastSeenOnline = DateTime.Now;
                     db.Users.Update(user);
                     await db.SaveChangesAsync();
+                    HomeController.ActiveUser = user;
                     return RedirectToAction("Index", "Home");
                 }
                 ModelState.AddModelError("", "Wrong username or password or both");

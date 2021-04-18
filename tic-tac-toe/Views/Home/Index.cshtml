@@ -1,17 +1,22 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    string username = User.Identity.Name;
 }
+@model IEnumerable<tic_tac_toe.Models.User>
+
 
 <div class="container-fluid">
+    <div class="h3">
+        Welcome, <span id="ActiveUser">@username</span>
+    </div>
     <div class="row">
         <div class="col-sm-6">
             <p class="bg-primary card-header text-center text-light card">Active sessions</p>
             <div class="card-body bg-light">
                 <!-- for each session in active ones -> output info -->
                 <div class="list-group">
-                    <div class="list-group-item">
-                        <span><b>Player:</b> username </span>
-                        <span><b>Symbol:</b> X </span>
+                    <div id="activeGames" class="list-group-item">
+                        <!-- Active games container -->
                     </div>
                 </div>
             </div>
@@ -19,8 +24,35 @@
         <div class="col-sm-6">
             <p class="bg-primary card-header text-center text-light">Create session</p>
             <div class="card-body bg-light">
-                <a class="btn btn-outline-primary justify-content-center w-100">Create</a>
+                <a id="no" asp-controller="Home" asp-action="Game" class="btn btn-outline-primary justify-content-center w-100">Create</a>
             </div>
         </div>
     </div>
 </div>
+
+@*<div class="container">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-2">Message</div>
+        <div class="col-4"><input type="text" id="messageInput" /></div>
+    </div>
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col-6">
+            <input type="button" id="sendButton" value="Send Message" />
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-12">
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-6">
+        <div id="messagesList"></div>
+    </div>
+</div>*@
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/game.js"></script>
+

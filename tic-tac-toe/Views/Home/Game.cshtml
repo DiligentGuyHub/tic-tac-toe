@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    string username = User.Identity.Name;
+}
+
+@model tic_tac_toe.ViewModels.GameModel
+<div class="row">
+    <button id="publish" class="btn btn-outline-primary col-sm-6">Publish game</button>
+    <button class="btn btn-outline-danger col-sm-6">Finish game</button>
+    <p class="col-sm-12 text-center">Enjoy you play, <span id="ActiveUser">@username</span></p>
+    <p class="col-sm-12 text-center" id="SessionID"></p>
+    <div class="mx-auto mb-4">
+        <table class="table table-bordered" id="sendTurn">
+            <tr>
+                <th id="0" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="1" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="2" class="btn btn-outline-secondary" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th id="3" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="4" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="5" class="btn btn-outline-secondary" width="100" height="100"></th>
+            </tr>
+            <tr>
+                <th id="6" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="7" class="btn btn-outline-secondary" width="100" height="100"></th>
+                <th id="8" class="btn btn-outline-secondary" width="100" height="100"></th>
+            </tr>
+        </table>
+    </div>
+</div>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/game.js"></script>

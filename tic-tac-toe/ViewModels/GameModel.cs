@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace tic_tac_toe.ViewModels
 {
-    public class CreateGameModel
+    public class GameModel
     {
         
     }

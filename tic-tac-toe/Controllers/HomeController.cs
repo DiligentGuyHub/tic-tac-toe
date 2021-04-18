@@ -13,10 +13,11 @@ namespace tic_tac_toe.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
+        public static User ActiveUser;
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            ActiveUser = new User();
         }
 
         [Authorize]
@@ -30,6 +31,11 @@ namespace tic_tac_toe.Controllers
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult Game()
         {
             return View();
         }
